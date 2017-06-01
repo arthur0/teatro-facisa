@@ -1,0 +1,29 @@
+<ion-header>
+ <ion-toolbar transparent>
+  <ion-title>Adicionar Notícia</ion-title>
+  <ion-buttons end>
+    <button ion-button icon-only (click)="fechar()"><ion-icon name="close"></ion-icon></button>
+  </ion-buttons>
+ </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+ 
+  <ion-list no-lines>
+ 
+    <ion-item>
+      <ion-label floating>Título</ion-label>
+      <ion-input [(ngModel)]="titulo" type="text"></ion-input>
+    </ion-item>
+ 
+    <ion-item>
+      <ion-label floating>Texto</ion-label>
+      <ion-textarea [(ngModel)]="texto"></ion-textarea>
+    </ion-item>
+ 
+ 
+  </ion-list>
+ 
+  <button ion-button full color="secondary" (click)="salvar()">Salvar</button>
+ 
+</ion-content>
