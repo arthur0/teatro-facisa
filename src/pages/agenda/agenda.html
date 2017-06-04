@@ -6,35 +6,13 @@
         <ion-title>Agenda</ion-title>
     </ion-navbar>
 </ion-header>
-
 <ion-content class="ion-content-color-light card-background-page">
     <ion-list>
         <ion-list-header>
             Hoje
         </ion-list-header>
-        <!--<div class="your-class">
-            <div>
-                <img src="http://placehold.it/1370x1550" alt="">
-            </div>
-            <div>
-                <img src="http://placehold.it/1370x900" alt="">
-            </div>
-            <div>
-                <img src="http://placehold.it/1370x900" alt="">
-            </div>
-        </div>-->
-
-
-
         <ion-slides autoplay="3000" loop="true" pager zoom effect="coverflow" speed="500">
             <ion-slide>
-                <!--<img src="http://3.bp.blogspot.com/-1CM1PKRTWoI/TlTJIj8Wf7I/AAAAAAAAAF4/vrIgyV2FctA/s1600/Snapshot_001.jpg" alt="">-->
-                <!--<ion-card>-->
-                <!--<div class="mask-slide"></div>
-                        <img src="http://3.bp.blogspot.com/-1CM1PKRTWoI/TlTJIj8Wf7I/AAAAAAAAAF4/vrIgyV2FctA/s1600/Snapshot_001.jpg" />
-                        <div class="card-title">São Paulo</div>
-                        <div class="card-subtitle">41 Listings</div>-->
-
                 <div class="wrapper-slide">
                     <div class="mask-slide"></div>
                     <div class="slide">
@@ -43,19 +21,8 @@
                         <div class="card-subtitle z-index-titulo-cards-agenda">sit amet</div>
                     </div>
                 </div>
-
-                <!--</ion-card>-->
             </ion-slide>
-
             <ion-slide>
-                <!--<div class="mask-slide"></div>
-                        <div class="slide">
-                            <img src="http://4.bp.blogspot.com/-wQgyiUgbuQ4/VQpWoaW9gxI/AAAAAAAACc8/7eEUIfu4FzE/s1600/03190002.JPG" alt="">
-
-                        </div>
-                        <div class="card-title z-index-titulo-cards-agenda">São Paulo</div>
-                        <div class="card-subtitle z-index-titulo-cards-agenda">41 Listings</div>-->
-
                 <div class="wrapper-slide">
                     <div class="mask-slide"></div>
                     <div class="slide">
@@ -65,13 +32,7 @@
                     </div>
                 </div>
             </ion-slide>
-
             <ion-slide>
-                <!--<div class="mask-slide"></div>
-                        <img src="http://slovenskainzercia.sk/x-sk/inz/2089/2089916-arts-and-crafts-vymalovanie-interieru-dekorativne-prace-8.jpg" alt="">
-                        <div class="card-title z-index-titulo-cards-agenda">São Paulo</div>
-                        <div class="card-subtitle z-index-titulo-cards-agenda">41 Listings</div>-->
-
                 <div class="wrapper-slide">
                     <div class="mask-slide"></div>
                     <div class="slide">
@@ -84,14 +45,11 @@
         </ion-slides>
     </ion-list>
     <ion-list>
-        <ion-list-header>
-            Próximos Eventos
-        </ion-list-header>
-        <ion-card *ngFor="let item of [1,2,3,4,5,6,7,8]; let i=index">
-            <ion-card-header [innerHtml]="'Espatáculo ' + i"></ion-card-header>
-
+        <ion-list-header>Próximos Eventos</ion-list-header>
+        <ion-card *ngFor="let item of programacao;" (click)="detalharEvento(item)">
+            <ion-card-header>{{item.titulo}}</ion-card-header>
             <ion-card-content>
-                <img src="http://placehold.it/1370x450" alt="">
+                <img src="{{item.imagem}}" alt="">
             </ion-card-content>
         </ion-card>
     </ion-list>
