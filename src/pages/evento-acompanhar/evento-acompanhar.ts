@@ -35,7 +35,6 @@ export class EventoAcompanharPage {
   }
 
   presentProfileModal(data) {
-    console.log(data);
     let profileModal = this.modalCtrl.create(ModalPerguntasPublicoPage, { pergunta: data });
     profileModal.present();
   }

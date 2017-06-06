@@ -12,6 +12,9 @@ import { NoticiasPage } from '../pages/noticias/noticias';
 import { EventoPage } from '../pages/evento/evento';
 import { EventoAcompanharPage } from '../pages/evento-acompanhar/evento-acompanhar';
 import { ModalPerguntasPublicoPage } from '../pages/evento-acompanhar/modal-perguntas-publico/modal-perguntas-publico';
+import { EventoAcompanharProducaoPage } from '../pages/evento-acompanhar-producao/evento-acompanhar-producao';
+import { PerguntaEstatisticaPage } from '../pages/pergunta-estatistica/pergunta-estatistica';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -26,7 +29,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     NoticiasPage,
     EventoPage,
     EventoAcompanharPage,
-    ModalPerguntasPublicoPage
+    ModalPerguntasPublicoPage,
+    EventoAcompanharProducaoPage,
+    PerguntaEstatisticaPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     NoticiasPage,
     EventoPage,
     EventoAcompanharPage,
-    ModalPerguntasPublicoPage
+    ModalPerguntasPublicoPage,
+    EventoAcompanharProducaoPage,
+    PerguntaEstatisticaPage
   ],
   providers: [
     StatusBar,

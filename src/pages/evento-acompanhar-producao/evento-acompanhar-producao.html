@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>eventoAcompanharProducao</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="ion-content-color-light">
+    <div padding>
+        <button ion-button block (click)="presentActionSheet()">Criar Tópico/Pergunta</button>
+    </div>
+
+    <div>
+        <ion-list-header *ngIf="questionamentos.length">Tópicos/Perguntas disponíveis</ion-list-header>
+        <ion-card *ngFor="let item of questionamentos let i = index" (click)="goToEstatistica()">
+            <ion-card-content>{{i + 1}} - {{item}}</ion-card-content>
+        </ion-card>
+    </div>
+
+</ion-content>
