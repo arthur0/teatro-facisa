@@ -10,6 +10,8 @@ import { FotosPage } from '../pages/fotos/fotos';
 import { LoginPage } from '../pages/login/login';
 import { NoticiasPage } from '../pages/noticias/noticias';
 import { EventoPage } from '../pages/evento/evento';
+import { EventoAcompanharPage } from '../pages/evento-acompanhar/evento-acompanhar';
+import { ModalPerguntasPublicoPage } from '../pages/evento-acompanhar/modal-perguntas-publico/modal-perguntas-publico';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -22,7 +24,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     FotosPage,
     LoginPage,
     NoticiasPage,
-    EventoPage
+    EventoPage,
+    EventoAcompanharPage,
+    ModalPerguntasPublicoPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     FotosPage,
     LoginPage,
     NoticiasPage,
-    EventoPage
+    EventoPage,
+    EventoAcompanharPage,
+    ModalPerguntasPublicoPage
   ],
   providers: [
     StatusBar,

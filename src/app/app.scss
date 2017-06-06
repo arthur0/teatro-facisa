@@ -86,3 +86,12 @@
 .item-ios.item-block .item-inner {
     border-bottom: none;
 }
+
+textarea {
+    height: 200px;
+}
+
+.ion-item-pergunta-aberta {
+    background-color: color($colors, light);
+    border: none;
+}

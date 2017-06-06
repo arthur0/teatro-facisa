@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { EventoAcompanharPage } from '../evento-acompanhar/evento-acompanhar';
 
 @IonicPage()
 @Component({
@@ -19,6 +20,12 @@ export class EventoPage {
     this.imagem = evento.imagem;
     this.titulo = evento.titulo;
     this.descricao = evento.descricao;
+  }
+
+  acompanhar(data) {
+    this.navCtrl.push(EventoAcompanharPage, {
+      evento: data
+    });
   }
 
 }
