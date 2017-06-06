@@ -1,12 +1,12 @@
 <ion-header>
     <ion-navbar color="primary">
-        <ion-title>eventoAcompanhar</ion-title>
+        <ion-title>Escolha um tópico</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content class="ion-content-color-light">
     <ion-list-header>Tópicos/Perguntas disponíveis</ion-list-header>
     <ion-card *ngFor="let item of perguntas let i = index" (click)="presentProfileModal(item)">
-        <ion-card-content>{{i + 1}} - {{item.descricao}} {{item.tipo}}</ion-card-content>
+        <ion-card-content>{{i + 1}} - {{item.descricao}}</ion-card-content>
     </ion-card>
 </ion-content>
