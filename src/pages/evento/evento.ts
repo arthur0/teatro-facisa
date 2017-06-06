@@ -65,12 +65,12 @@ export class EventoPage {
 
   showPrompt() {
     let prompt = this.alertCtrl.create({
-      title: 'Login',
-      message: "Enter a name for this new album you're so keen on adding",
+      title: 'Entre',
+      message: 'Digite o TOKEN que você recebeu da produção',
       inputs: [
         {
           name: 'password',
-          placeholder: 'Title'
+          placeholder: 'Token'
         },
       ],
       buttons: [
