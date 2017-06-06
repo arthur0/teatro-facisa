@@ -1,48 +1,40 @@
 <ion-header>
     <ion-navbar color="primary">
         <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+            <ion-icon name="menu"></ion-icon>
+        </button>
         <ion-title>Fotos</ion-title>
+        <ion-buttons end>
+            <button ion-button *ngIf="show" (click)="show = false">
+                <ion-icon ios="ios-apps-outline" md="md-apps"></ion-icon>
+            </button>
+            <button ion-button *ngIf="!show" (click)="show = true">
+                <ion-icon ios="ios-list" md="md-list"></ion-icon>
+            </button>
+        </ion-buttons>
     </ion-navbar>
 </ion-header>
 
-
-<ion-content padding>
-    <h3>Fotos</h3>
-
-    <p>
-        TODO: Adionar conteúdo da página:
-    </p>
-
-    <ul>
-        <li>Exibir as fotos mais recentes através de <a href="http://blog.ionic.io/layout-the-cool-way-using-the-ionic-2-grid-component/">
-    Grid Component</a>
-        </li>
-        <li>Fotos devem ter a atração (descrição embaixo) para facilitar pesquisa por fotos mais antigas </li>
-        <li>Possuir campo de busca inteligente (e.g. Caso o usuário comece a escrever "Lean" as fotos da palestra com Leandro carnal devem ser exibidas)
-    </ul>
-    <pre>
-    
-
-
---------------------------------
-|      Lean                  @ |         ( @ =  SearchIcon )
---------------------------------
-
---------------    -------------- 
-|            |    |            |
-| FOTO 1     |    | Foto 2     |
-|            |    |            |
---------------    -------------
---------------    -------------- 
-|            |    |            |
-| FOTO 3     |    | Foto 4     |
-|            |    |            |
---------------    -------------
-
-...
-
-  </pre>
-
+<ion-content text-center class="icons-basic-page">
+    <ion-list *ngIf="show">
+        <ion-card *ngFor="let item of fotos;">
+            <ion-card-content>
+                <img src="{{item.imagem}}" alt="">
+            </ion-card-content>
+        </ion-card>
+    </ion-list>
+    <ion-grid *ngIf="!show">
+        <ion-row>
+            <ion-col>
+                <div *ngFor="let item of fotosImpar;">
+                    <img src="{{item.imagem}}" alt="">
+                </div>
+            </ion-col>
+            <ion-col>
+                <div *ngFor="let item1 of fotosPar;">
+                    <img src="{{item1.imagem}}" alt="">
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
