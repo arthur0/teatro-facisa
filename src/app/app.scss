@@ -1,6 +1,4 @@
 // http://ionicframework.com/docs/v2/theming/
-
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,3 +12,86 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.ion-content-color-light {
+    background-color: color($colors, light);
+}
+
+.swiper-pagination-bullet {
+    background-color: color($colors, light);
+}
+
+.swiper-pagination-bullet-active {
+    background-color: color($colors, primary);
+}
+
+.card-background-page {
+    ion-card {
+        position: relative;
+        text-align: center;
+    }
+    .card-title {
+        position: absolute;
+        top: 36%;
+        font-size: 2.0em;
+        width: 100%;
+        font-weight: bold;
+        color: #fff;
+    }
+    .card-subtitle {
+        font-size: 1.0em;
+        position: absolute;
+        top: 52%;
+        width: 100%;
+        color: #fff;
+    }
+}
+
+.wrapper-slide {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.mask-slide {
+    position: absolute;
+    background-color: black;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.z-index-titulo-cards-agenda {
+    z-index: 1
+}
+
+.bg-content-menu {
+    background: #2b3335;
+    background: -moz-linear-gradient(top, #2b3335 0%, #f16f5c 0%, #34373b 0%, #880e4f 71%, #34373b 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #2b3335), color-stop(0%, #f16f5c), color-stop(0%, #34373b), color-stop(71%, #880e4f), color-stop(100%, #34373b));
+    background: -webkit-linear-gradient(top, #2b3335 0%, #f16f5c 0%, #34373b 0%, #880e4f 71%, #34373b 100%);
+    background: -o-linear-gradient(top, #2b3335 0%, #f16f5c 0%, #34373b 0%, #880e4f 71%, #34373b 100%);
+    background: -ms-linear-gradient(top, #2b3335 0%, #f16f5c 0%, #34373b 0%, #880e4f 71%, #34373b 100%);
+    background: linear-gradient(to bottom, #2b3335 0%, #f16f5c 0%, #34373b 0%, #880e4f 71%, #34373b 100%);
+}
+
+.bg-transparent {
+    background: transparent;
+    color: #fff;
+    margin-bottom: 5px
+}
+
+.item-ios.item-block .item-inner {
+    border-bottom: none;
+}
+
+textarea {
+    height: 200px;
+}
+
+.ion-item-pergunta-aberta {
+    background-color: color($colors, light);
+    border: none;
+}

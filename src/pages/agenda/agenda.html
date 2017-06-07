@@ -1,23 +1,56 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Agenda</ion-title>
-  </ion-navbar>
+        <ion-title>Agenda</ion-title>
+    </ion-navbar>
 </ion-header>
-
-<ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-      {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+<ion-content class="ion-content-color-light card-background-page">
+    <ion-list>
+        <ion-list-header>
+            Hoje
+        </ion-list-header>
+        <ion-slides autoplay="3000" loop="true" pager zoom effect="coverflow" speed="500">
+            <ion-slide>
+                <div class="wrapper-slide">
+                    <div class="mask-slide"></div>
+                    <div class="slide">
+                        <img src="http://3.bp.blogspot.com/-1CM1PKRTWoI/TlTJIj8Wf7I/AAAAAAAAAF4/vrIgyV2FctA/s1600/Snapshot_001.jpg" />
+                        <div class="card-title z-index-titulo-cards-agenda">Lorem Ipsum</div>
+                        <div class="card-subtitle z-index-titulo-cards-agenda">sit amet</div>
+                    </div>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="wrapper-slide">
+                    <div class="mask-slide"></div>
+                    <div class="slide">
+                        <img src="http://4.bp.blogspot.com/-wQgyiUgbuQ4/VQpWoaW9gxI/AAAAAAAACc8/7eEUIfu4FzE/s1600/03190002.JPG" alt="">
+                        <div class="card-title z-index-titulo-cards-agenda">Nunc quis egestas</div>
+                        <div class="card-subtitle z-index-titulo-cards-agenda">risus</div>
+                    </div>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="wrapper-slide">
+                    <div class="mask-slide"></div>
+                    <div class="slide">
+                        <img src="http://slovenskainzercia.sk/x-sk/inz/2089/2089916-arts-and-crafts-vymalovanie-interieru-dekorativne-prace-8.jpg" alt="">
+                        <div class="card-title z-index-titulo-cards-agenda">Aliquam nec ligula</div>
+                        <div class="card-subtitle z-index-titulo-cards-agenda">quam tempor</div>
+                    </div>
+                </div>
+            </ion-slide>
+        </ion-slides>
+    </ion-list>
+    <ion-list>
+        <ion-list-header>Próximos Eventos</ion-list-header>
+        <ion-card *ngFor="let item of programacao;" (click)="detalharEvento(item)">
+            <ion-card-header>{{item.titulo}}</ion-card-header>
+            <ion-card-content>
+                <img src="{{item.imagem}}" alt="">
+            </ion-card-content>
+        </ion-card>
+    </ion-list>
 </ion-content>
