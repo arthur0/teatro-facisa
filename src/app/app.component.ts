@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { AgendaPage } from '../pages/agenda/agenda';
 import { FotosPage } from '../pages/fotos/fotos';
 import { LoginPage } from '../pages/login/login';
+import { RegistroPage } from '../pages/registro/registro';
 import { NoticiasPage } from '../pages/noticias/noticias';
 
 
