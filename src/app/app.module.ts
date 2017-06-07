@@ -39,7 +39,6 @@ const firebaseConfig = {
     FotosPage,
     LoginPage,
     RegistroPage,
-    NoticiasPage
     NoticiasPage,
     EventoPage,
     EventoAcompanharPage,
