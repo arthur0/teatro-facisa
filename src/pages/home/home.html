@@ -1,10 +1,17 @@
 <ion-header>
     <ion-navbar color="primary">
         <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+            <ion-icon name="menu"></ion-icon>
+        </button>
         <ion-title>Teatro Facisa</ion-title>
+        <ion-buttons end [hidden]="!dataLogin" >
+      <button ion-button (click)='abrirLogout()'>
+        <ion-icon name="contact"></ion-icon>
+        {{user}}
+      </button>
+    </ion-buttons>
     </ion-navbar>
+
 </ion-header>
 
 <ion-content class="ion-content-color-light" padding>

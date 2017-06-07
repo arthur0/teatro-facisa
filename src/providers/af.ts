@@ -3,7 +3,7 @@ import {AngularFire, AuthProviders, AuthMethods, FirebaseListObservable, Firebas
 import {FirebaseObjectFactoryOpts} from "angularfire2/interfaces";
 
 @Injectable()
-export class AF {
+export class AngularFireMEU {
   public messages: FirebaseListObservable<any>;
   public users: FirebaseListObservable<any>;
   public displayName: string;

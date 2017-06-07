@@ -47,10 +47,11 @@ export class LoginPage implements OnInit{
 		}).then(function(response){
 			let user = {
 				email:response.auth.email,
-				picture:response.auth.photoURL
+				picture:response.auth.photoURL,
+				displayName: response.auth.displayName
 			};
       window.localStorage.setItem('user',JSON.stringify(user));
-      self.navCtrl.setRoot(HomePage);
+      this.navCtrl.setRoot(HomePage);
 		}).catch(function(error){
 			console.log(error);
 		});
@@ -64,9 +65,11 @@ export class LoginPage implements OnInit{
 			provider: AuthProviders.Google,
 			method: AuthMethods.Popup
 		}).then(function(response){
+			console.log(response);
 			let user = {
 				email:response.auth.email,
-				picture:response.auth.photoURL
+				picture:response.auth.photoURL,
+				displayName: response.auth.displayName
 			};
 			window.localStorage.setItem('user',JSON.stringify(user));
 			 self.navCtrl.setRoot(HomePage);
@@ -82,7 +85,8 @@ export class LoginPage implements OnInit{
 		}).then(function(response){
 			let user = {
 				email:response.auth.email,
-				picture:response.auth.photoURL
+				picture:response.auth.photoURL,
+				displayName: response.auth.displayName
 			};
 			window.localStorage.setItem('user',JSON.stringify(user));
 			self.navCtrl.setRoot(HomePage);
