@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Fotos</ion-title>
+        <ion-buttons end>
+            <button ion-button *ngIf="show" (click)="show = false">
+                <ion-icon ios="ios-apps-outline" md="md-apps"></ion-icon>
+            </button>
+            <button ion-button *ngIf="!show" (click)="show = true">
+                <ion-icon ios="ios-list" md="md-list"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content text-center class="icons-basic-page">
+    <ion-list *ngIf="show">
+        <ion-card *ngFor="let item of fotos;">
+            <ion-card-content>
+                <img src="{{item.imagem}}" alt="">
+            </ion-card-content>
+        </ion-card>
+    </ion-list>
+    <ion-grid *ngIf="!show">
+        <ion-row>
+            <ion-col>
+                <div *ngFor="let item of fotosImpar;">
+                    <img src="{{item.imagem}}" alt="">
+                </div>
+            </ion-col>
+            <ion-col>
+                <div *ngFor="let item1 of fotosPar;">
+                    <img src="{{item1.imagem}}" alt="">
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
