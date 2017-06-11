@@ -2,9 +2,9 @@
   "name": "teatro-frontend",
   "description":  "Projeto da disciplina de Desenvolvimento Para Dispositivos Móvies 2017.1",
   "version": "1.0.0",
-  "arthor": "Arthur Souza Miranda github.com/@arthur0",
+  "arthor": "Alunos UNIFACISA",
   "license": "MIT",
-  "homepage": "github.com/arthur0",
+  "homepage": "TODO",
   "private": false,
   "scripts": {
     "clean": "ionic-app-scripts clean",
