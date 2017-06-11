@@ -1,17 +1,16 @@
 <ion-content>
-    <div class="container">
-        <div class="card-registro">
-            <div class="logo">
-                <img src="assets/logo.png" />
-            </div>
-            <form id="login-form">
-                <input type="text" [(ngModel)]="nome" name="nome" id="name" placeholder="Nome">
-                <input type="text" [(ngModel)]="imail" name="email" id="email" placeholder="E-mail">
-                <input type="password" [(ngModel)]="senha" name="password" id="password" placeholder="Password">
-                <button ion-button (click)="onSalvar($event, nome, imail, senha)">Salvar</button>
-                <button ion-button id="cancelarBtn">Cancelar</button><br />
-                <hr>
-            </form>
-        </div>
-    </div>
+	<div class="container">
+		<div class="card">
+      <div class="logo">
+        <img src="../../assets/logo.png" />
+      </div>
+			<form id="login-form"  >
+				<input type="text" [(ngModel)]="nome" name="nome" id="name" placeholder="Nome">
+				<input type="text" [(ngModel)]="imail" name="email" id="email" placeholder="E-mail">
+				<input type="password" [(ngModel)]="senha" name="password" id="password" placeholder="Password">
+				<button ion-button (click)="onSalvar($event, nome, imail, senha)">Salvar</button>
+				<button ion-button id="cancelarBtn">Cancelar</button><br /><hr>
+			</form>
+		</div>
+	</div>
 </ion-content>
