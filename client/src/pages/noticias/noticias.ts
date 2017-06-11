@@ -1,9 +1,20 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { AddNoticiaPage } from './add-noticia';
 import { NoticiasProvider } from '../../providers/noticias/noticias';
 
 
+=======
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
+/**
+ * Generated class for the NoticiasPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+>>>>>>> foto
 @IonicPage()
 @Component({
   selector: 'page-noticias',
@@ -11,6 +22,7 @@ import { NoticiasProvider } from '../../providers/noticias/noticias';
 })
 export class NoticiasPage {
 
+<<<<<<< HEAD
   noticias: any[] = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
@@ -59,4 +71,13 @@ export class NoticiasPage {
   //   this.noticiasService.deletenoticias(noticias._id);
   // }
 
+=======
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad NoticiasPage');
+  }
+
+>>>>>>> foto
 }
