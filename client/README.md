@@ -12,13 +12,16 @@ Funcionalidades Desejadas:
 ## Como utilizar
 
 ```bash
-$ npm i
+$ npm i server/
+$ npm i client/
+$ node server/server.js
+$ cd client/
 $ ionic serve
 ```
 
 ## Participantes
- * Arthur Miranda (Notícias)
- * Artur Martins ()
- * Bruno Wesley ()
- * Mateus Rodrigues (Agenda)
- * Oliver (Home)
+ * Arthur Miranda
+ * Artur Martins 
+ * Bruno Wesley 
+ * Mateus Rodrigues 
+ * Oliver 

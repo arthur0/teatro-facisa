@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AngularFireModule } from 'angularfire2';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -16,8 +17,20 @@ import { EventoAcompanharPage } from '../pages/evento-acompanhar/evento-acompanh
 import { ModalPerguntasPublicoPage } from '../pages/evento-acompanhar/modal-perguntas-publico/modal-perguntas-publico';
 import { EventoAcompanharProducaoPage } from '../pages/evento-acompanhar-producao/evento-acompanhar-producao';
 import { PerguntaEstatisticaPage } from '../pages/pergunta-estatistica/pergunta-estatistica';
+import { AddNoticiaPage } from '../pages/noticias/add-noticia';
 
+import { AngularFireMEU } from '../providers/af'
 import { NoticiasProvider } from '../providers/noticias/noticias';
+
+// Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyASkrwbgyBgxVTKncOooSFuKRA5eWpOdUo",
+    authDomain: "teatro-exemplo.firebaseapp.com",
+    databaseURL: "https://teatro-exemplo.firebaseio.com",
+    projectId: "teatro-exemplo",
+    storageBucket: "teatro-exemplo.appspot.com",
+    messagingSenderId: "1068926679388"
+  };
 
 @NgModule({
   declarations: [
@@ -31,12 +44,19 @@ import { NoticiasProvider } from '../providers/noticias/noticias';
     EventoAcompanharPage,
     ModalPerguntasPublicoPage,
     EventoAcompanharProducaoPage,
-    PerguntaEstatisticaPage
+    PerguntaEstatisticaPage,
+    EventoPage,
+    EventoAcompanharPage,
+    ModalPerguntasPublicoPage,
+    EventoAcompanharProducaoPage,
+    PerguntaEstatisticaPage,
+    AddNoticiaPage
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   entryComponents: [
     MyApp,
@@ -44,13 +64,23 @@ import { NoticiasProvider } from '../providers/noticias/noticias';
     AgendaPage,
     FotosPage,
     LoginPage,
-    NoticiasPage
+    NoticiasPage,
+    EventoPage,
+    EventoAcompanharPage,
+    ModalPerguntasPublicoPage,
+    EventoAcompanharProducaoPage,
+    PerguntaEstatisticaPage,
+    LoginPage,
+    NoticiasPage,
+    AddNoticiaPage,
+
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    NoticiasProvider
+    NoticiasProvider,
+    AngularFireMEU
   ],
   bootstrap: [IonicApp]
 })
