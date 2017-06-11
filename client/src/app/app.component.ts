@@ -7,8 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { AgendaPage } from '../pages/agenda/agenda';
 import { FotosPage } from '../pages/fotos/fotos';
 import { LoginPage } from '../pages/login/login';
+import { RegistroPage } from '../pages/registro/registro';
 import { NoticiasPage } from '../pages/noticias/noticias';
-
 
 @Component({
   templateUrl: 'app.html'
@@ -29,8 +29,7 @@ export class MyApp {
       { title: 'Agenda', component: AgendaPage },
       { title: 'Fotos', component: FotosPage },
       { title: 'Login', component: LoginPage },
-      { title: 'Noticias', component: NoticiasPage },
-
+      { title: 'Noticias', component: NoticiasPage }
     ];
 
   }

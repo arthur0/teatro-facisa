@@ -1,0 +1,18 @@
+[{
+        "id": "27910472-5cdf-4a4a-a4b5-2ff76afa059f",
+        "tipo": "aberta",
+        "descricao": "odio"
+    },
+    {
+        "id": "daf4e97d-7d8b-4da1-a3c8-71acfaaaaa28",
+        "tipo": "unicaEscolha",
+        "descricao": "quaerat",
+        "perguntas": ["Amet sed omnis non.", "Ad earum reprehenderit voluptatibus voluptatem quia.", "Asperiores temporibus aspernatur ab consequatur quae aut dolorum asperiores fuga."]
+    },
+    {
+        "id": "43389846-33d1-46de-bf77-5050866d5619",
+        "tipo": "multiplaEscolha",
+        "descricao": "optio debitis quam",
+        "perguntas": ["Ad earum reprehenderit voluptatibus voluptatem quia.", "Et totam corrupti qui similique sed aut.", "Autem magni facilis fugit et."]
+    }
+]
