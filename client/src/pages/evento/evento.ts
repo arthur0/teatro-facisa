@@ -13,6 +13,8 @@ export class EventoPage {
   imagem: String = '';
   descricao: String = '';
   titulo: String = '';
+  idEvento: String;
+  evento: Object;
   constructor
     (
     public navCtrl: NavController,
@@ -23,17 +25,21 @@ export class EventoPage {
 
   ionViewDidLoad() {
     let evento = this.navParams.get('evento')
-    this.imagem = evento.imagem;
+    console.log(evento)
+    this.evento = evento
+    this.imagem = evento.banner;
     this.titulo = evento.titulo;
     this.descricao = evento.descricao;
+    this.idEvento = evento._id
   }
 
   goToAcompanhar() {
-    this.navCtrl.push(EventoAcompanharPage);
+    let id = this.idEvento;
+    this.navCtrl.push(EventoAcompanharPage, {id: id});
   }
 
   goToProdutor() {
-    this.navCtrl.push(EventoAcompanharProducaoPage);
+    this.navCtrl.push(EventoAcompanharProducaoPage, {evento: this.evento});
   }
 
   presentActionSheet() {

@@ -22,14 +22,16 @@ export class EventoAcompanharPage {
   }
 
   ionViewDidLoad() {
-    this.getEventos()
+    let eventoID = this.navParams.get('id')
+    this.getEventos(eventoID)
   }
 
-  getEventos() {
-    return this.http.get('assets/perguntas.json')
+  getEventos(id) {
+    return this.http.get('http://localhost:3000/api/eventos/' + id)
       .subscribe(
       data => {
-        this.perguntas = data.json();
+        console.log(data.json())
+        this.perguntas = data.json().questionamentos;
       }
       );
   }

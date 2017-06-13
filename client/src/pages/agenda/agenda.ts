@@ -20,7 +20,7 @@ export class AgendaPage {
   }
 
   getEventos() {
-    return this.http.get('assets/dados.json')
+    return this.http.get('http://localhost:3000/api/eventos')
       .subscribe(
       data => {
         this.programacao = data.json();

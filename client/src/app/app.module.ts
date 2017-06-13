@@ -18,6 +18,7 @@ import { ModalPerguntasPublicoPage } from '../pages/evento-acompanhar/modal-perg
 import { EventoAcompanharProducaoPage } from '../pages/evento-acompanhar-producao/evento-acompanhar-producao';
 import { PerguntaEstatisticaPage } from '../pages/pergunta-estatistica/pergunta-estatistica';
 import { AddNoticiaPage } from '../pages/noticias/add-noticia';
+import { RegistroPage } from '../pages/registro/registro';
 
 import { AngularFireMEU } from '../providers/af'
 import { NoticiasProvider } from '../providers/noticias/noticias';
@@ -50,7 +51,8 @@ const firebaseConfig = {
     ModalPerguntasPublicoPage,
     EventoAcompanharProducaoPage,
     PerguntaEstatisticaPage,
-    AddNoticiaPage
+    AddNoticiaPage,
+    RegistroPage
   ],
   imports: [
     BrowserModule,
@@ -73,6 +75,7 @@ const firebaseConfig = {
     LoginPage,
     NoticiasPage,
     AddNoticiaPage,
+    RegistroPage
 
   ],
   providers: [

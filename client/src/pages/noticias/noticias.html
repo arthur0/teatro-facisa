@@ -1,30 +1,30 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="addNoticia()"><ion-icon name="add"></ion-icon></button>
-    </ion-buttons>
-    <ion-title>Notícias</ion-title>
-  </ion-navbar>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="addNoticia()"><ion-icon name="add"></ion-icon></button>
+        </ion-buttons>
+        <ion-title>Notícias</ion-title>
+    </ion-navbar>
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="ion-content-color-light">
 
-<ion-card *ngFor="let noticia of noticias">
-  <ion-card-header>
-    {{noticia.titulo}}
-  </ion-card-header>
-  <ion-card-content>
-    {{noticia.texto}}
-  </ion-card-content>
-  <ion-buttons end>
-    <button (click)="mostraNoticia()" ion-button color="terra" clear icon-right>VER MAIS
+    <ion-card *ngFor="let noticia of noticias">
+        <ion-card-header>
+            {{noticia.titulo}}
+        </ion-card-header>
+        <ion-card-content>
+            {{noticia.texto}}
+        </ion-card-content>
+        <ion-buttons end>
+            <button (click)="mostraNoticia()" ion-button color="terra" clear icon-right>VER MAIS
         <ion-icon name="arrow-forward"></ion-icon>
     </button>
-  </ion-buttons>
-</ion-card>
+        </ion-buttons>
+    </ion-card>
 
 </ion-content>

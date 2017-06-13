@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ActionSheetController, AlertController } from 'ionic-angular';
 import { PerguntaEstatisticaPage } from '../pergunta-estatistica/pergunta-estatistica';
+import { Http } from '@angular/http';
 
 @IonicPage()
 @Component({
@@ -10,17 +11,20 @@ import { PerguntaEstatisticaPage } from '../pergunta-estatistica/pergunta-estati
 export class EventoAcompanharProducaoPage {
 
   questionamentos: String[] = [];
+  evento: Object;
   constructor
     (
-      public navCtrl: NavController,
-      public navParams: NavParams,
-      public actionSheetCtrl: ActionSheetController,
-      public alertCtrl: AlertController
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public actionSheetCtrl: ActionSheetController,
+    public alertCtrl: AlertController,
+    private http: Http,
     ) {
   }
 
   ionViewDidLoad() {
-
+    let evento = this.navParams.get('evento');
+    this.evento = evento;
   }
 
   presentActionSheet() {
@@ -74,7 +78,10 @@ export class EventoAcompanharProducaoPage {
         {
           text: 'Salvar',
           handler: data => {
-            this.questionamentos.push(data.descricao)
+            // this.questionamentos.push(data.descricao)
+            let a = this.evento
+            this.putEvento(a,data.descricao)
+
           }
         }
       ]
@@ -82,11 +89,24 @@ export class EventoAcompanharProducaoPage {
     prompt.present();
   }
 
-  goToEstatistica(data){
+  goToEstatistica(data) {
     this.navCtrl.push(PerguntaEstatisticaPage, {
       evento: data
     });
-    
+
   }
+
+  putEvento(evento, questao) {
+    evento.questionamentos.push(questao);
+    return this.http.put('http://localhost:3000/api/eventos/' + evento._id, evento )
+      .subscribe(
+      data => {
+        console.log(data.json())
+        console.log(data.json()._body)
+        // this.perguntas = data.json().questionamentos;
+      }
+      );
+  }
+
 
 }

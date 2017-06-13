@@ -17,7 +17,7 @@ export class ModalPerguntasPublicoPage {
   ionViewDidLoad() {
     let evento = this.navParams.get('pergunta')
     this.perguntas = evento.perguntas;
-    this.descricao = evento.descricao;
+    this.descricao = evento;
     this.tipo = evento.tipo;
   }
 
