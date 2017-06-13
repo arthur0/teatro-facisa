@@ -18,7 +18,7 @@ export class FotosPage {
   }
 
   getFotos() {
-    return this.http.get('assets/fotos.json')
+    return this.http.get('http://localhost:3000/api/fotos')
     .subscribe(
       data => {
         console.log(data.json())

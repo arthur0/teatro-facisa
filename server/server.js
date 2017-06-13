@@ -9,6 +9,7 @@ var path = require('path');
 var usuarios = require('./routes/usuarios');
 var noticias = require('./routes/noticias');
 var eventos = require('./routes/eventos');
+var fotos = require('./routes/fotos');
 var config = require('./config');
 
 // Autenticação
@@ -48,6 +49,7 @@ mongoose.connection.once('open', function() {
     app.use('/api/usuarios', usuarios);
     app.use('/api/noticias', noticias);
     app.use('/api/eventos', eventos);
+    app.use('/api/fotos', fotos);
 
     app.use(generalErrorHandler);
     app.use(pageForFoundErrorHandler);
