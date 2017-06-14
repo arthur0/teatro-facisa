@@ -19,7 +19,10 @@
     <ion-list *ngIf="show">
         <ion-card *ngFor="let item of fotos;">
             <ion-card-content>
-                <img src="{{item.imagem}}" alt="">
+                <a href="{{item.linkSocial}}" target="_blank">
+                    <img src="{{item.imagem}}" alt="">
+
+                </a>
             </ion-card-content>
         </ion-card>
     </ion-list>
@@ -27,12 +30,16 @@
         <ion-row>
             <ion-col>
                 <div *ngFor="let item of fotosImpar;">
-                    <img src="{{item.imagem}}" alt="">
+                    <a href="{{item.linkSocial}}" target="_blank">
+                        <img src="{{item.imagem}}" alt="">
+                    </a>
                 </div>
             </ion-col>
             <ion-col>
                 <div *ngFor="let item1 of fotosPar;">
-                    <img src="{{item1.imagem}}" alt="">
+                    <a href="{{item1.linkSocial}}" target="_blank">
+                        <img src="{{item1.imagem}}" alt="">
+                    </a>
                 </div>
             </ion-col>
         </ion-row>
