@@ -3,68 +3,75 @@
         <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-        <ion-title>Teatro Facisa</ion-title>
+        <ion-title>O Teatro</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content class="ion-content-color-light">
-  
-    <ion-slides>
-      <ion-slides autoplay="3000" loop ="true"  speed="400">
-        <ion-slide>
-          <img src="http://www.teatrofacisa.com.br/wp-content/uploads/photo-gallery/image-1.jpg" alt="">
-        </ion-slide>
-        <ion-slide>
-          <img src="http://www.teatrofacisa.com.br/wp-content/uploads/photo-gallery/image-2.jpg" alt="">
-        </ion-slide>
-        <ion-slide>
-          <img src="http://www.teatrofacisa.com.br/wp-content/uploads/photo-gallery/image-3.jpg" alt="">
-        </ion-slide>
-        <ion-slide>
-          <img src="http://www.teatrofacisa.com.br/wp-content/uploads/photo-gallery/image-4.jpg" alt="">
-        </ion-slide>
-        <ion-slide>
-          <img src="http://www.teatrofacisa.com.br/wp-content/uploads/photo-gallery/image-5.jpg" alt="">
-        </ion-slide>
-        <ion-slide>
-          <img src="http://www.teatrofacisa.com.br/wp-content/uploads/photo-gallery/image-6.jpg" alt="">
-        </ion-slide>
-        <ion-slide>
-          <img src="http://www.teatrofacisa.com.br/wp-content/uploads/photo-gallery/image-7.jpg" alt="">
-        </ion-slide>
-        <ion-slide>
-          <img src="http://www.teatrofacisa.com.br/wp-content/uploads/photo-gallery/image-8.jpg" alt="">
-        </ion-slide>
-        <ion-slide>
-          <img src="http://www.teatrofacisa.com.br/wp-content/uploads/photo-gallery/image-9.jpg" alt="">
-        </ion-slide>
-        <ion-slide>
-          <img src="http://www.teatrofacisa.com.br/wp-content/uploads/photo-gallery/image-10.jpg" alt="">
-        </ion-slide>
-        <ion-slide>
-          <img src="http://www.teatrofacisa.com.br/wp-content/uploads/photo-gallery/image-11.jpg" alt="">
-        </ion-slide>
-        <ion-slide>
-          <img src="http://www.teatrofacisa.com.br/wp-content/uploads/photo-gallery/image-12.jpg" alt="">
-        </ion-slide>
-  </ion-slides> 
-</ion-slides>
+    <div class="marginHome">
 
-<ion-card>
+        <ion-slides autoplay="1000" loop="true" speed="3000">
+            <ion-slide>
+                <img src="http://www.teatrofacisa.com.br/wp-content/uploads/photo-gallery/image-1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+                <img src="http://www.teatrofacisa.com.br/wp-content/uploads/photo-gallery/image-2.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+                <img src="http://www.teatrofacisa.com.br/wp-content/uploads/photo-gallery/image-3.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+                <img src="http://www.teatrofacisa.com.br/wp-content/uploads/photo-gallery/image-4.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+                <img src="http://www.teatrofacisa.com.br/wp-content/uploads/photo-gallery/image-5.jpg" alt="">
+            </ion-slide>
+        </ion-slides>
 
-  <ion-card-header>
-    O Teatro
-  </ion-card-header>
+        <p class="textJustify">O Teatro FACISA é um dos empreendimentos do Centro de Ensino Superior e Desenvolvimento – CESED. Localizado na cidade de Campina Grande/PB e inaugurado no dia 28 de novembro de 2012, é uma referência no que tange à imponência de sua infraestrutura.
+            Possui mecanismos cênicos de alto padrão equiparando-se aos grandes teatros do sul e sudeste do Brasil, o que lhe permite entrar na rota de apresentação de grandes espetáculos nacional e internacional.Dado a esse perfil, oferecerá espaço para
+            apresentações de dança, circo-teatro, música, além de eventos de natureza acadêmicas e empresarial: seminários e congressos. A Paraíba, assim como estados circunvizinhos terão um espaço versátil.</p>
+        <p class="textJustify"> A sala de espetáculos comporta 716 espectadores sentados, em seus diversos setores – plateia, plateia superior e camarotes. Suas dependências contam ainda com bar, total acesso para pessoas portadoras de necessidades especiais, além de ambientes
+            para eventos menores e coquetéis.</p>
+        <p class="textJustify">Localiza-se, no Campus do CESED/FACISA, no bairro do Itararé, garante segurança e conforto ao público, disponibiliza estacionamento para 600 vagas.</p>
 
-  <ion-card-content>
-   O Teatro FACISA é um dos empreendimentos do Centro de Ensino Superior e Desenvolvimento – CESED. 
-   Localizado na cidade de Campina Grande/PB e inaugurado no dia 28 de novembro de 2012, é uma referência no que tange à imponência de sua infraestrutura. 
-   Possui mecanismos cênicos de alto padrão equiparando-se aos grandes teatros do sul e sudeste do Brasil, o que lhe permite entrar na rota de apresentação de grandes espetáculos nacional e internacional. 
-   Dado a esse perfil, oferecerá espaço para apresentações de dança, circo-teatro, música, além de eventos de natureza acadêmicas e empresarial: seminários e congressos. A Paraíba, assim como estados circunvizinhos terão um espaço versátil.
-   A sala de espetáculos comporta 716 espectadores sentados, em seus diversos setores – plateia, plateia superior e camarotes.
-   Suas dependências contam ainda com bar, total acesso para pessoas portadoras de necessidades especiais, além de ambientes para eventos menores e coquetéis.
-   Localiza-se, no Campus do CESED/FACISA, no bairro do Itararé, garante segurança e conforto ao público, disponibiliza estacionamento para 600 vagas.
-  </ion-card-content>
+        <a (click)="lerMais()" *ngIf="!isLerMais" class="retirarsublinhado">
+            <ion-label>Ler mais...</ion-label>
+        </a>
 
-</ion-card>
+        <div *ngIf="isLerMais">
+
+            <h3>
+                <span style="text-decoration: underline;">Palco e Mecanismo Cênico</span>
+            </h3>
+            <p class="textJustify">O Teatro FACISA priorizou a utilização do smais modernos mecanismos cênicos, desde os equipamentos utilizados nos bastidores à iluminação, acústica, aos elementos de conforto, segurança e acessibilidade ao público. Com área total de 2.624,95m²,
+                com palco de 273,37m², e altura de 6m e a boca de cena 9 a 12m, com 7 varas de cenário e 16 de iluminação. Tem capacidade para 716 lugares, as poltronas são extremamente conforáveis, havendo poltronas especiais nos camarotes e na grande
+                plateia, adaptadas para PNEs (pessoas com necessidades especiais). A plateia se divide em: plateia principal, balcão nobre e camarotes. Na parte térrea, o teatro conta com um grande Foyer, lounge, bar/café, e uma cozinha industrial para
+                dar apoio aos eventos. Buscando um ambiente tão confortável para o público quanto para o artista, o projeto inclui um amplo backstage, contendo três bem equipados e luxuosos camarins. O complexo agrega ainda salas de aula e ensaios para
+                dança, música e teatro.</p>
+            <p class="textJustify">O Teatro utiliza os mais modernos equipamentos, destacando os sistemas de iluminação e sonorização. Além de um cuidadoso projeto acústico, para atender a usos distintos. A concepção dos ambientes valoriza elementos de conforto, segurança e
+                acessibilidade ao público.</p>
+
+            <h3>
+                <span style="text-decoration: underline;">Acústica</span>
+            </h3>
+            <p class="textJustify">Com a preocupação de garantir o conforto acústico do Teatro, o projeto conta com desenhos específicos que contribuem para a propagação sonora, a exemplo do forro, o qual distribui maneira uniforme, com alcance em todas as área da plateia,
+                e o tratamento das paredes laterais, que eliminam o paralelismo. Além disso, foram utilizados materiais especiais de absorção, permitindo o múltiplo uso do espaço, respeitando as variações sonoras de cada modalidade de espetáculo sem comprometer
+                a audibilidade e nitidez. O isolamento sonoro é dado pela utilização de paredes, duplas, materiais isolantes no sistema de ar condicionado, portas e acessos por antecâmaras acústicas.</p>
+
+            <h3>
+                <span style="text-decoration: underline;">Sonorização</span>
+            </h3>
+            <p class="textJustify">Os equipamentos utilizados no projeto sonora são da marca Toa, líder mundial em sonorização profissional. O som de última geração, possui processamento 7.1 em todos os ambientes, com mais de 4000 watts de potência, divididos em 27 caixas acústicas
+                <br>distribuídas na platéia.</p>
+            <p class="textJustify">Console: Mix Digital Allen & Heath T.112 Live com IDR de 48 canais de entrada e 24 de saída; podendo chegar a 64 canais de entrada. Controles Touchscreen e Analógicos.</p>
+            <p class="textJustify">P.A.: Sistema de som line Array Speaker TOA (Japonês) Passivo. Duas colunas de caixa sendo (L) e (R) com a mesma configuração abaixo por coluna:</p>
+            <p class="textJustify">
+                02 Caixas SR-C8L com potência de 360W;
+                <br><br> 02 Caixas SR-C8S com potência de 360W;
+                <br><br> 01 Caixa C-15C Subwoofer type bass reflex aéreo com potência de 450W;
+                <br><br> 01 subwoofer de base modelo FB120B 200W
+            </p>
+        </div>
+    </div>
 </ion-content>

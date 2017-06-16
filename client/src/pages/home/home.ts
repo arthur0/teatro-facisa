@@ -1,23 +1,52 @@
 import { Component ,OnInit} from '@angular/core';
 import { NavController, ActionSheetController} from 'ionic-angular';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage implements OnInit{
+
   dataLogin: boolean;
+  isLerMais: boolean = false;
   user: string = '' ;
   picture: string = '';
-  constructor(public navCtrl: NavController, public actionSheetCtrl: ActionSheetController) {
+  fotos: any;
+
+  constructor(private http: Http, public navCtrl: NavController, public actionSheetCtrl: ActionSheetController) {
   }
+  
   ngOnInit(){
     var response = JSON.parse(window.localStorage.getItem('user'));
     if(response !== null){
       this.dataLogin = true;
       this.user = response.displayName;
     }
-  }
+  };
+
+  lerMais() {
+    if(this.isLerMais === false) {
+      this.isLerMais = true;
+    } else {
+      this.isLerMais = false;
+    }
+  };
+
+  getFotosTeatro() {
+    return this.http.get('http://localhost:3000/api/fotosTeatro')
+    .subscribe(
+      data => {
+        let tagSlide = document.getElementById('ion-slide');
+        // tagSlide.setAttribute('autoplay', '1000');
+        // tagSlide.setAttribute('loop', 'true');
+        // tagSlide.setAttribute('speed', '3000');
+        this.fotos = data.json();
+      }
+    )
+  };
+
   abrirLogout() {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Opções',
@@ -31,6 +60,11 @@ export class HomePage implements OnInit{
         }
       ]
     });
+    
     actionSheet.present();
+  }
+
+  ionViewDidLoad() {
+    //this.getFotosTeatro();
   }
 }
