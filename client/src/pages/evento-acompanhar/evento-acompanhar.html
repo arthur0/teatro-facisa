@@ -7,6 +7,6 @@
 <ion-content class="ion-content-color-light">
     <ion-list-header>Tópicos/Perguntas disponíveis</ion-list-header>
     <ion-card *ngFor="let item of perguntas let i = index" (click)="presentProfileModal(item)">
-        <ion-card-content>{{i + 1}} - {{item}}</ion-card-content>
+        <ion-card-content>{{i + 1}} - {{item.descricao}}</ion-card-content>
     </ion-card>
 </ion-content>

@@ -17,17 +17,22 @@ var express = require('express');
 var router = express.Router();
 
 var Evento = require('../models/evento');
+var mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const ObjectId = Schema.Types.ObjectId;
 
 
 // GET / - Retorna todas as noticias
 router.get('/', function(req, res, next) {
-    Evento.find().exec(function(err, eventos) {
-        if (err) {
-            return next(err);
-        }
+    Evento.find()
+        .populate('questionamentos')
+        .exec(function(err, eventos) {
+            if (err) {
+                return next(err);
+            }
 
-        res.json(eventos);
-    });
+            res.json(eventos);
+        });
 });
 
 // POST / - Inclui um novo evento
@@ -37,7 +42,7 @@ router.post('/', function(req, res, next) {
             return next(err);
         }
 
-        res.json(evento);
+        res.json(evento._id);
     });
 });
 
@@ -50,18 +55,20 @@ router.post('/', function(req, res, next) {
  * request, para que as funções possam utilizá-la.
  */
 router.param('id', function(req, res, next, id) {
-    Evento.findById(id).exec(function(err, evento) { // Busca a evento pelo id
-        if (err) {
-            return next(err);
-        }
+    Evento.findById(id)
+        .populate('questionamentos')
+        .exec(function(err, evento) { // Busca a evento pelo id
+            if (err) {
+                return next(err);
+            }
 
-        if (!evento) { // Caso não exista a evento, lançar um erro
-            return next(new Error('Não foi possível encontrar a evento com o id informado'));
-        }
+            if (!evento) { // Caso não exista a evento, lançar um erro
+                return next(new Error('Não foi possível encontrar a evento com o id informado'));
+            }
 
-        req.evento = evento; // Adiciona a noticia ao request
-        return next(); // Passa o controle para a função apropriada
-    });
+            req.evento = evento; // Adiciona a noticia ao request
+            return next(); // Passa o controle para a função apropriada
+        });
 });
 
 // GET /:id - Retorna a noticia com o id informado
@@ -81,12 +88,22 @@ router.delete('/:id', function(req, res, next) {
 
 // PUT /:id - Atualiza os dados da noticia com o id informado
 router.put('/:id', function(req, res, next) {
-    Evento.update(req.body, function(err, evento) {
-        if (err) {
-            return next(err);
-        }
+    // Evento.update(req.params.id, function(err, evento) {
+    //     if (err) {
+    //         return next(err);
+    //     }
 
-        res.json(evento);
+    //     res.json(evento);
+    // });
+    Evento.update({
+        _id: req.params.id
+    }, {
+        $push: {
+            questionamentos: req.body
+        }
+    }, function(err, success) {
+        if (err) res.status(400).json(err);
+        else res.status(200).json({ success: true });
     });
 });
 

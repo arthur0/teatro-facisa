@@ -8,7 +8,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class ModalPerguntasPublicoPage {
 
-  perguntas: any
+  questoes: any
   descricao: any
   tipo: any
 
@@ -16,8 +16,10 @@ export class ModalPerguntasPublicoPage {
 
   ionViewDidLoad() {
     let evento = this.navParams.get('pergunta')
-    this.perguntas = evento.perguntas;
-    this.descricao = evento;
+    console.log(evento);
+
+    this.questoes = evento.questoes;
+    this.descricao = evento.descricao;
     this.tipo = evento.tipo;
   }
 

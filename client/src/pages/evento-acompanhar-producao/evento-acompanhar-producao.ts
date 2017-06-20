@@ -19,7 +19,7 @@ export class EventoAcompanharProducaoPage {
     public actionSheetCtrl: ActionSheetController,
     public alertCtrl: AlertController,
     private http: Http,
-    ) {
+  ) {
   }
 
   ionViewDidLoad() {
@@ -80,7 +80,7 @@ export class EventoAcompanharProducaoPage {
           handler: data => {
             // this.questionamentos.push(data.descricao)
             let a = this.evento
-            this.putEvento(a,data.descricao)
+            this.putEvento(a, data.descricao)
 
           }
         }
@@ -98,12 +98,32 @@ export class EventoAcompanharProducaoPage {
 
   putEvento(evento, questao) {
     evento.questionamentos.push(questao);
-    return this.http.put('http://localhost:3000/api/eventos/' + evento._id, evento )
+    let idPergunta = this.salvarQuestao(questao);
+
+    return this.http.put('http://localhost:3000/api/eventos/' + evento._id, { idPergunta })
       .subscribe(
       data => {
         console.log(data.json())
         console.log(data.json()._body)
         // this.perguntas = data.json().questionamentos;
+      }
+      );
+  }
+
+  salvarQuestao(questao) {
+
+    let asd = {
+      descricao: questao,
+      tipo: 'aberta',
+      questoes:[]
+    }
+
+    return this.http.post('http://localhost:3000/api/perguntas', { asd })
+      .subscribe(
+      data => {
+        console.log(data.json())
+        console.log(data.json()._body)
+        return data.json();
       }
       );
   }

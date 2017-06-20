@@ -11,6 +11,7 @@ var noticias = require('./routes/noticias');
 var eventos = require('./routes/eventos');
 var fotos = require('./routes/fotos');
 var fotosTeatro = require('./routes/fotosTeatro');
+var perguntas = require('./routes/perguntas');
 var config = require('./config');
 
 // Autenticação
@@ -52,6 +53,7 @@ mongoose.connection.once('open', function() {
     app.use('/api/eventos', eventos);
     app.use('/api/fotos', fotos);
     app.use('/api/fotosTeatro', fotosTeatro);
+    app.use('/api/perguntas', perguntas);
 
     app.use(generalErrorHandler);
     app.use(pageForFoundErrorHandler);
