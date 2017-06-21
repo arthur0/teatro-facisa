@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController, AlertController } from 'ionic-angular';
+import { LoadingController, IonicPage, NavController, NavParams, ActionSheetController, AlertController } from 'ionic-angular';
 import { PerguntaEstatisticaPage } from '../pergunta-estatistica/pergunta-estatistica';
 import { Http } from '@angular/http';
 
@@ -16,8 +16,12 @@ export class EventoAcompanharProducaoPage {
   evento: Object;
   perguntaCriada: any;
   eventoID: any;
+  loader = this.loadingCtrl.create({
+    content: "Aguarde, buscando informações..."
+  });
   constructor
     (
+    public loadingCtrl: LoadingController,
     public navCtrl: NavController,
     public navParams: NavParams,
     public actionSheetCtrl: ActionSheetController,
@@ -103,9 +107,12 @@ export class EventoAcompanharProducaoPage {
   }
 
   putEvento(evento) {
+    // this.loader.present();
     return this.http.put(AppConf.SERVER_URL + '/api/eventos/' + evento._id, this.perguntaCriada)
       .subscribe(
       data => {
+        // this.loader.dismiss();
+        console.log(data);
         let alert = this.alertCtrl.create({
           title: 'Sucesso !',
           subTitle: 'Pergunta criada com sucesso, logo ela estará disponível para o público',
@@ -118,7 +125,7 @@ export class EventoAcompanharProducaoPage {
   }
 
   salvarQuestao(evento, questao) {
-
+    // this.loader.present();
     let reqObj = {
       descricao: questao,
       tipo: 'aberta',
@@ -129,16 +136,19 @@ export class EventoAcompanharProducaoPage {
       .subscribe(
       data => {
         this.perguntaCriada = data.json();
+        // this.loader.dismiss();
         this.putEvento(evento);
       }
       );
   }
 
   getEvento() {
+    // this.loader.present();
     return this.http.get(AppConf.SERVER_URL + '/api/eventos/' + this.eventoID)
       .subscribe(
       data => {
-        this.questionamentos = data.json().questionamentos
+        this.questionamentos = data.json().questionamentos;
+        // this.loader.dismiss();
       }
       );
   }

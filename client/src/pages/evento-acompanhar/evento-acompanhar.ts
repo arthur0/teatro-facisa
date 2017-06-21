@@ -1,10 +1,10 @@
 import { Component, Injectable } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { LoadingController, IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ModalPerguntasPublicoPage } from '../evento-acompanhar/modal-perguntas-publico/modal-perguntas-publico';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import * as AppConf from '../../app/app.const'; 
+import * as AppConf from '../../app/app.const';
 
 @IonicPage()
 @Component({
@@ -19,8 +19,10 @@ export class EventoAcompanharPage {
   titulo: any;
   questionamentos: any;
   eventoID: any;
-
-  constructor(private http: Http, public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+  loader = this.loadingCtrl.create({
+    content: "Aguarde, buscando informações..."
+  });
+  constructor(public loadingCtrl: LoadingController, private http: Http, public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
@@ -29,10 +31,12 @@ export class EventoAcompanharPage {
   }
 
   getEventos() {
-    return this.http.get(AppConf.SERVER_URL +  '/api/eventos/' + this.eventoID)
+    // this.loader.present();
+    return this.http.get(AppConf.SERVER_URL + '/api/eventos/' + this.eventoID)
       .subscribe(
       data => {
         this.perguntas = data.json().questionamentos;
+        // this.loader.dismiss();
       }
       );
   }

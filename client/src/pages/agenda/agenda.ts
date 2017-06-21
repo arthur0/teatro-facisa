@@ -1,12 +1,13 @@
 
 import { Component, Injectable } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { LoadingController, NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { EventoPage } from '../evento/evento';
 
-import * as AppConf from '../../app/app.const'; 
+
+import * as AppConf from '../../app/app.const';
 
 @Component({
   selector: 'page-agenda',
@@ -17,15 +18,21 @@ import * as AppConf from '../../app/app.const';
 export class AgendaPage {
 
   programacao: any;
-  constructor(private http: Http, public navCtrl: NavController, public navParams: NavParams) {
 
+  loader = this.loadingCtrl.create({
+    content: "Aguarde, buscando informações..."
+  });
+
+  constructor(public loadingCtrl: LoadingController, private http: Http, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   getEventos() {
+    this.loader.present();
     return this.http.get(AppConf.SERVER_URL + '/api/eventos')
       .subscribe(
       data => {
         this.programacao = data.json();
+        this.loader.dismiss();
       }
       );
   }

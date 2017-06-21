@@ -86,23 +86,29 @@ router.delete('/:id', function(req, res, next) {
     });
 });
 
-// PUT /:id - Atualiza os dados da noticia com o id informado
 router.put('/:id', function(req, res, next) {
-    // Evento.update(req.params.id, function(err, evento) {
-    //     if (err) {
-    //         return next(err);
-    //     }
-
-    //     res.json(evento);
-    // });
-    Evento.update(req.params.id, {
-        $push: {
-            questionamentos: req.body
+    Evento.findById(req.params.id, function(err, evento) {
+        if (err) {
+            return handleError(err);
+        } else {
+            evento.questionamentos.push(req.body);
+            evento.save(function(err, todo) {
+                if (err) {
+                    res.status(500).json(err);
+                }
+                res.send(todo);
+            });
+            // res.json(tank);
         }
-    }, function(err, success) {
-        if (err) res.status(400).json(err);
-        else res.status(200).json({ success: true });
     });
+    // Evento.update(req.params.id, {
+    //     $push: {
+    //         questionamentos: req.body
+    //     }
+    // }, function(err, success) {
+    //     if (err) res.status(400).json(err);
+    //     else res.status(200).json(success);
+    // });
 });
 
 module.exports = router; // Exporta o 'router' devidamente configurado
