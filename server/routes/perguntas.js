@@ -34,7 +34,7 @@ router.post('/', function(req, res, next) {
             return next(err);
         }
 
-        res.json({ id: pergunta._id });
+        res.json(pergunta);
     });
 });
 

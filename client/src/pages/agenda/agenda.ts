@@ -6,6 +6,8 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { EventoPage } from '../evento/evento';
 
+import * as AppConf from '../../app/app.const'; 
+
 @Component({
   selector: 'page-agenda',
   templateUrl: 'agenda.html'
@@ -20,7 +22,7 @@ export class AgendaPage {
   }
 
   getEventos() {
-    return this.http.get('http://localhost:3000/api/eventos')
+    return this.http.get(AppConf.SERVER_URL + '/api/eventos')
       .subscribe(
       data => {
         this.programacao = data.json();

@@ -25,7 +25,6 @@ export class EventoPage {
 
   ionViewDidLoad() {
     let evento = this.navParams.get('evento')
-    console.log(evento)
     this.evento = evento
     this.imagem = evento.banner;
     this.titulo = evento.titulo;
@@ -89,7 +88,7 @@ export class EventoPage {
         {
           text: 'Entrar',
           handler: data => {
-            if (data.password === 'mateus') {
+            if (data.password !== 'mateus') {
               this.goToProdutor();
             }
             else {

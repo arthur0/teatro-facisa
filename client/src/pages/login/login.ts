@@ -65,7 +65,6 @@ export class LoginPage implements OnInit{
 			provider: AuthProviders.Google,
 			method: AuthMethods.Popup
 		}).then(function(response){
-			console.log(response);
 			let user = {
 				email:response.auth.email,
 				picture:response.auth.photoURL,

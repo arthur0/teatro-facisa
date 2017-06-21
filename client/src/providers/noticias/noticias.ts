@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
+import * as AppConf from '../../app/app.const'; 
 
 
 @Injectable()
@@ -9,7 +10,6 @@ export class NoticiasProvider {
   data: any;
 
   constructor(public http: Http) {
-    console.log("CALL: NoticiasProvider")
     this.data = null;
   }
 
@@ -18,7 +18,7 @@ export class NoticiasProvider {
       return Promise.resolve(this.data);
     }
     return new Promise(resolve => {
-      this.http.get('http://localhost:3000/api/noticias')
+      this.http.get(AppConf.SERVER_URL + '/api/noticias')
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -31,7 +31,7 @@ export class NoticiasProvider {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    this.http.post('http://localhost:3000/api/noticias', JSON.stringify(noticia), { headers: headers })
+    this.http.post(AppConf.SERVER_URL + '/api/noticias', JSON.stringify(noticia), { headers: headers })
       .subscribe(res => {
         console.log(res.json());
       });
@@ -39,7 +39,7 @@ export class NoticiasProvider {
   }
 
   deleteNoticia(id) {
-    this.http.delete('http://localhost:3000/api/noticias/' + id).subscribe((res) => {
+    this.http.delete(AppConf.SERVER_URL + '/api/noticias/' + id).subscribe((res) => {
       console.log(res.json());
     });
 

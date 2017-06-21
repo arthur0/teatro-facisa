@@ -18,9 +18,7 @@ export class NoticiasPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad NOTICIAS_PAGE');
     this.noticiasService.getNoticias().then((data) => {
-      console.log(data);
       this.noticias = data;
     });
   }
@@ -31,7 +29,6 @@ export class NoticiasPage {
   }
 
   addNoticia(){
-    console.log("Botão ADD NOTICIA clicado")
     let modal = this.modalCtrl.create(AddNoticiaPage);
  
     modal.onDidDismiss(noticia => {

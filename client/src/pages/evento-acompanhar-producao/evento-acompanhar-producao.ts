@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, ActionSheetController, AlertContro
 import { PerguntaEstatisticaPage } from '../pergunta-estatistica/pergunta-estatistica';
 import { Http } from '@angular/http';
 
+import * as AppConf from '../../app/app.const';
+
 @IonicPage()
 @Component({
   selector: 'page-evento-acompanhar-producao',
@@ -12,6 +14,8 @@ export class EventoAcompanharProducaoPage {
 
   questionamentos: String[] = [];
   evento: Object;
+  perguntaCriada: any;
+  eventoID: any;
   constructor
     (
     public navCtrl: NavController,
@@ -25,6 +29,8 @@ export class EventoAcompanharProducaoPage {
   ionViewDidLoad() {
     let evento = this.navParams.get('evento');
     this.evento = evento;
+    this.eventoID = evento._id;
+    this.getEvento();
   }
 
   presentActionSheet() {
@@ -36,23 +42,24 @@ export class EventoAcompanharProducaoPage {
           handler: () => {
             this.showPrompt()
           }
-        }, {
-          text: 'Única Escolha',
-          handler: () => {
-            console.log('Archive clicked');
-          }
-        }, {
-          text: 'Múltipla Escolha',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }, {
-          text: 'Cancel',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
         }
+        // , {
+        //   text: 'Única Escolha',
+        //   handler: () => {
+        //     console.log('Archive clicked');
+        //   }
+        // }, {
+        //   text: 'Múltipla Escolha',
+        //   handler: () => {
+        //     console.log('Cancel clicked');
+        //   }
+        // }, {
+        //   text: 'Cancel',
+        //   role: 'cancel',
+        //   handler: () => {
+        //     console.log('Cancel clicked');
+        //   }
+        // }
       ]
     });
     actionSheet.present();
@@ -78,9 +85,8 @@ export class EventoAcompanharProducaoPage {
         {
           text: 'Salvar',
           handler: data => {
-            // this.questionamentos.push(data.descricao)
-            let a = this.evento
-            this.putEvento(a, data.descricao)
+            let evento = this.evento
+            this.salvarQuestao(evento, data.descricao)
 
           }
         }
@@ -96,37 +102,44 @@ export class EventoAcompanharProducaoPage {
 
   }
 
-  putEvento(evento, questao) {
-    evento.questionamentos.push(questao);
-    let idPergunta = this.salvarQuestao(questao);
-
-    return this.http.put('http://localhost:3000/api/eventos/' + evento._id, { idPergunta })
+  putEvento(evento) {
+    return this.http.put(AppConf.SERVER_URL + '/api/eventos/' + evento._id, this.perguntaCriada)
       .subscribe(
       data => {
-        console.log(data.json())
-        console.log(data.json()._body)
-        // this.perguntas = data.json().questionamentos;
+        let alert = this.alertCtrl.create({
+          title: 'Sucesso !',
+          subTitle: 'Pergunta criada com sucesso, logo ela estará disponível para o público',
+          buttons: ['OK']
+        });
+        alert.present();
+        this.getEvento();
       }
       );
   }
 
-  salvarQuestao(questao) {
+  salvarQuestao(evento, questao) {
 
-    let asd = {
+    let reqObj = {
       descricao: questao,
       tipo: 'aberta',
-      questoes:[]
+      questoes: []
     }
 
-    return this.http.post('http://localhost:3000/api/perguntas', { asd })
+    return this.http.post(AppConf.SERVER_URL + '/api/perguntas', reqObj)
       .subscribe(
       data => {
-        console.log(data.json())
-        console.log(data.json()._body)
-        return data.json();
+        this.perguntaCriada = data.json();
+        this.putEvento(evento);
       }
       );
   }
 
-
+  getEvento() {
+    return this.http.get(AppConf.SERVER_URL + '/api/eventos/' + this.eventoID)
+      .subscribe(
+      data => {
+        this.questionamentos = data.json().questionamentos
+      }
+      );
+  }
 }

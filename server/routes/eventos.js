@@ -95,9 +95,7 @@ router.put('/:id', function(req, res, next) {
 
     //     res.json(evento);
     // });
-    Evento.update({
-        _id: req.params.id
-    }, {
+    Evento.update(req.params.id, {
         $push: {
             questionamentos: req.body
         }

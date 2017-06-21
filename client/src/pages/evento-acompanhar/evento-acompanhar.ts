@@ -4,6 +4,7 @@ import { ModalPerguntasPublicoPage } from '../evento-acompanhar/modal-perguntas-
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import * as AppConf from '../../app/app.const'; 
 
 @IonicPage()
 @Component({
@@ -17,20 +18,20 @@ export class EventoAcompanharPage {
   perguntas: any;
   titulo: any;
   questionamentos: any;
+  eventoID: any;
 
   constructor(private http: Http, public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
-    let eventoID = this.navParams.get('id')
-    this.getEventos(eventoID)
+    this.eventoID = this.navParams.get('id')
+    this.getEventos()
   }
 
-  getEventos(id) {
-    return this.http.get('http://localhost:3000/api/eventos/' + id)
+  getEventos() {
+    return this.http.get(AppConf.SERVER_URL +  '/api/eventos/' + this.eventoID)
       .subscribe(
       data => {
-        console.log(data.json())
         this.perguntas = data.json().questionamentos;
       }
       );

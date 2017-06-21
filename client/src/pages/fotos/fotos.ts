@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
+import * as AppConf from '../../app/app.const'; 
 
 @IonicPage()
 @Component({
@@ -18,10 +19,9 @@ export class FotosPage {
   }
 
   getFotos() {
-    return this.http.get('http://localhost:3000/api/fotos')
+    return this.http.get(AppConf.SERVER_URL + '/api/fotos')
     .subscribe(
       data => {
-        console.log(data.json())
         this.fotos = data.json();
         this.addFotosInList(data.json());
       }
@@ -36,8 +36,6 @@ export class FotosPage {
         this.fotosPar.push(lista[i]);
       }
     }
-    console.log('ListaImpar: ', this.fotosImpar);
-    console.log('ListaPar: ', this.fotosPar);
   };
 
   ionViewDidLoad() {

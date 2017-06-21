@@ -12,7 +12,7 @@
     <div>
         <ion-list-header *ngIf="questionamentos.length">Tópicos/Perguntas disponíveis</ion-list-header>
         <ion-card *ngFor="let item of questionamentos let i = index" (click)="goToEstatistica()">
-            <ion-card-content>{{i + 1}} - {{item}}</ion-card-content>
+            <ion-card-content>{{i + 1}} - {{item.descricao}}</ion-card-content>
         </ion-card>
     </div>
 </ion-content>

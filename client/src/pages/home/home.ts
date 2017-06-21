@@ -2,6 +2,8 @@ import { Component ,OnInit} from '@angular/core';
 import { NavController, ActionSheetController} from 'ionic-angular';
 import { Http } from '@angular/http';
 
+import * as AppConf from '../../app/app.const'; 
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -35,7 +37,7 @@ export class HomePage implements OnInit{
   };
 
   getFotosTeatro() {
-    return this.http.get('http://localhost:3000/api/fotosTeatro')
+    return this.http.get( AppConf.SERVER_URL + '/api/fotosTeatro')
     .subscribe(
       data => {
         let tagSlide = document.getElementById('ion-slide');

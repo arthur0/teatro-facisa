@@ -16,7 +16,7 @@ import { NoticiasPage } from '../pages/noticias/noticias';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = AgendaPage;
 
   pages: Array<{title: string, component: any}>;
 

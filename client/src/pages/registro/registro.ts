@@ -45,7 +45,6 @@ export class RegistroPage implements OnInit{
 		cancelarBtn.addEventListener('click',this.onCancelar.bind(this));
 	}
 	onSalvar(event, name, email, password){
-		console.log(email);
 		event.preventDefault();
     		this.registerUser(email, password).then((user) => {
       			this.saveUserInfoFromForm(user.uid, name, email).then(() => {
@@ -128,7 +127,6 @@ export class RegistroPage implements OnInit{
    * @returns {firebase.Promise<void>}
    */
   registerUser(email, password) {
-    console.log(email)
     return this.af.auth.createUser({
       email: email,
       password: password
