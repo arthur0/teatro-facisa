@@ -40,10 +40,6 @@ export class HomePage implements OnInit{
     return this.http.get( AppConf.SERVER_URL + '/api/fotosTeatro')
     .subscribe(
       data => {
-        let tagSlide = document.getElementById('ion-slide');
-        // tagSlide.setAttribute('autoplay', '1000');
-        // tagSlide.setAttribute('loop', 'true');
-        // tagSlide.setAttribute('speed', '3000');
         this.fotos = data.json();
       }
     )

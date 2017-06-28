@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Interação</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="ion-content-color-light">
+  <ion-list-header>Acontecendo Agora</ion-list-header>
+  <ion-card *ngFor="let item of programacao;" (click)="presentActionSheet(item)">
+    <ion-card-header>{{item.titulo}}</ion-card-header>
+    <ion-card-content class="no-padding-card-interacao">
+      <img src="{{item.banner}}">
+    </ion-card-content>
+  </ion-card>
+</ion-content>

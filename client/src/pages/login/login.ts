@@ -35,7 +35,6 @@ export class LoginPage implements OnInit{
 		fbBtn.addEventListener('click',this.onFacebookLogin.bind(this));
 	}
 	onClick(e){
-		let self = this;
 		let email:string = this.root.querySelector('#email').value;
 		let password:string = this.root.querySelector('#password').value;
 		this.af.auth.login({

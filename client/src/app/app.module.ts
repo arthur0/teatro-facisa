@@ -19,6 +19,7 @@ import { EventoAcompanharProducaoPage } from '../pages/evento-acompanhar-produca
 import { PerguntaEstatisticaPage } from '../pages/pergunta-estatistica/pergunta-estatistica';
 import { AddNoticiaPage } from '../pages/noticias/add-noticia';
 import { RegistroPage } from '../pages/registro/registro';
+import { InteracaoPage } from '../pages/interacao/interacao';
 
 import { AngularFireMEU } from '../providers/af'
 import { NoticiasProvider } from '../providers/noticias/noticias';
@@ -52,7 +53,8 @@ const firebaseConfig = {
     EventoAcompanharProducaoPage,
     PerguntaEstatisticaPage,
     AddNoticiaPage,
-    RegistroPage
+    RegistroPage,
+    InteracaoPage
   ],
   imports: [
     BrowserModule,
@@ -75,7 +77,8 @@ const firebaseConfig = {
     LoginPage,
     NoticiasPage,
     AddNoticiaPage,
-    RegistroPage
+    RegistroPage,
+    InteracaoPage
 
   ],
   providers: [

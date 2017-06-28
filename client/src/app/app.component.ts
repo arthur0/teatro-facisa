@@ -7,8 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { AgendaPage } from '../pages/agenda/agenda';
 import { FotosPage } from '../pages/fotos/fotos';
 import { LoginPage } from '../pages/login/login';
-import { RegistroPage } from '../pages/registro/registro';
 import { NoticiasPage } from '../pages/noticias/noticias';
+import { InteracaoPage } from '../pages/interacao/interacao';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,20 +16,21 @@ import { NoticiasPage } from '../pages/noticias/noticias';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = AgendaPage;
+  rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any, icon: string }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Agenda', component: AgendaPage },
-      { title: 'Fotos', component: FotosPage },
-      { title: 'Login', component: LoginPage },
-      { title: 'Noticias', component: NoticiasPage }
+      { title: 'Agenda', component: AgendaPage, icon: 'calendar' },
+      { title: 'Fotos', component: FotosPage, icon: 'camera' },
+      { title: 'Login', component: LoginPage, icon: 'contact' },
+      { title: 'Noticias', component: NoticiasPage, icon: 'book' },
+      { title: 'Interação', component: InteracaoPage, icon: 'chatbubbles' },
+      { title: 'Teatro Facisa', component: HomePage, icon: 'microphone' }
     ];
 
   }

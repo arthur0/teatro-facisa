@@ -6,7 +6,11 @@
     </ion-header>
 
     <ion-content class="bg-content-menu">
-        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" class="bg-transparent">{{p.title}}</button>
+
+        <button menuClose ion-item icon-left *ngFor="let p of pages" (click)="openPage(p)" class="bg-transparent">
+            <ion-icon name="{{p.icon}}" class="margin-top-icon-menu"></ion-icon>
+            {{p.title}}
+        </button>
     </ion-content>
 </ion-menu>
 

@@ -1,6 +1,5 @@
 import {Injectable} from "@angular/core";
 import {AngularFire, AuthProviders, AuthMethods, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
-import {FirebaseObjectFactoryOpts} from "angularfire2/interfaces";
 
 @Injectable()
 export class AngularFireMEU {
